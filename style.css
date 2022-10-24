@@ -1,0 +1,51 @@
+*, body, html {padding: 0px; margin: 0px;}
+body {font-family: "Segoe UI"; font-size: 12px;}
+* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.wrapper {width: 980px; margin: 20px auto;}
+.pwdgenTitle {background: #1c1d21; border: 2px solid #333; border-radius: 8px; color: #EEEFF7; float: left;  font-size: 28px; padding: 20px; text-align: center; width: 100%;}
+.pwdgenTitle span {font-size: 14px;}
+.pwdgenButtonHolder {float: left; width: 100%; margin-top: 10px;}
+.pwdgenResult, .pwdgenResultMeter, .pwdgenPassList {float: left; width: 100%; margin-top: 20px;}
+.pwdgenResult textarea {font-size: 26px; font-weight: bold; padding: 20px; resize: none; width: 100%;}
+button.genButton {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #7fbf4d;
+    background-image: -moz-linear-gradient(center top , #7fbf4d, #63a62f);
+    border-color: #63a62f #63a62f #5b992b;
+    border-image: none;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 #96ca6d inset;
+    color: #fff;
+    font: bold 20px/1 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    padding: 12px 0 10px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #4c9021;
+    width: 100%;
+}
+button.genButton:hover {
+    background-color: #76b347;
+    background-image: -moz-linear-gradient(center top , #76b347, #5e9e2e);
+    box-shadow: 0 1px 0 0 #8dbf67 inset;
+    cursor: pointer;
+}
+button.genButton:active {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #5b992b #5b992b #538c27;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 8px 4px #548c29 inset, 0 1px 0 0 #eeeeee;
+}
+.pwdMeterHolder {float: left; width: 100%; height: 20px; border: 1px solid #999; border-radius: 3px;}
+.pwdMeterHolder span.pwdMeter {display: block; float: left; height: 100%; background: #386ea7;}
+.pwdgenResultMeter span.pwdMeterNum {display: block; font-size: 12px; text-align: right; width: 100%;}
+.generatedPasswords {list-style-type: none;}
+.generatedPasswords span {font-weight: bold; padding-left: 4px;}
