@@ -1,6 +1,6 @@
 ﻿var arr;
 $(document).ready(function () {
-	var specials = ["!", "%", "$", "#", "?", "+", "_", "=", "-", "@", "*"];
+	var specials = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","{","|","}","~"];
 	$(".genButton").on("click", function (e) {
 		arr = new Array();
 		e.preventDefault();
