@@ -1,6 +1,6 @@
 ﻿var arr;
 $(document).ready(function () {
-	var specials = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","{","|","}","~"];
+	var specials = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "|", "}", "~"];
 	$(".genButton").on("click", function (e) {
 		arr = new Array();
 		e.preventDefault();
@@ -17,7 +17,12 @@ $(document).ready(function () {
 		var specNo = getRandomInt(0, specials.length - 1);
 		var genP = randomCaseStr(arr[itemNo]); //arr[itemNo];
 		var extraP = getRandomStr(3);
-		var genPass = extraP+ genP + randNum + specials[specNo];
+		
+		var passChunks = new Array();
+		passChunks.push(extraP, genP, randNum, specials[specNo]);
+		//shuffle password chunks to random positions and join to string
+		var genPass = shuffleArray(passChunks).join('');
+
 		$(".taResults").val(genPass);
 		var proc = 0;
 		$('.taResults').complexify({ strengthScaleFactor: 0.6 }, function (valid, complexity) {
@@ -59,7 +64,7 @@ function randomCaseStr(str) {
 	return s;
 }
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function getRandomStr(len) {
 	return randomCaseStr(Math.random().toString(36).substr(2, len));
@@ -69,7 +74,7 @@ function TimeStamp() {
 	return AddZero(d.getDate()) + "." + (d.getMonth() + 1) + "." + d.getFullYear() + " " + AddZero(d.getHours()) + ":" + AddZero(d.getMinutes()) + ":" + AddZero(d.getSeconds());
 }
 function AddZero(num) {
-    return (num >= 0 && num < 10) ? "0" + num : num + "";
+	return (num >= 0 && num < 10) ? "0" + num : num + "";
 }
 function removeHtmlStorage(name) {
 	localStorage.removeItem(name);
@@ -93,4 +98,13 @@ function statusHtmlStorage(name) {
 	} else {
 		return 1;
 	}
+}
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+	return array;
 }
