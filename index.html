@@ -1,17 +1,18 @@
 ﻿<!doctype html>
 <html>
 <head>
-    <title>PwdGEN v0.91</title>
+	<title>PwdGEN v0.92</title>
 	<link rel="shortcut icon" type="image/x-icon" href="pwd.ico" />
 	<script type="text/javascript" src="//code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script type="text/javascript" src="jquery.complexify.min.js"></script>
 	<script type="text/javascript" src="local.js?v=0.9"></script>
 	<link rel="stylesheet" href="style.css?v=0.9" />
 </head>
+
 <body>
-    <div class="wrapper">
+	<div class="wrapper">
 		<div class="pwdgenTitle">
-			PwdGEN <span>v0.91</span>
+			PwdGEN <span>v0.92</span>
 		</div>
 		<div class="pwdgenButtonHolder">
 			<button class="genButton">Zmisli si nekaj</button>
@@ -26,7 +27,16 @@
 			<span class="pwdMeterNum"></span>
 		</div>
 		<div class="pwdgenPassList">
+			<small>Generirana gesla:</small>
 			<ul class="generatedPasswords"></ul>
+		</div>
+		<div class="toggle-dark-mode-holder" style="display: none;">
+			<div class="btn-container">
+				<label class="switch btn-color-mode-switch">
+					<input type="checkbox" name="color_mode" id="color_mode" value="1">
+					<label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+				</label>
+			</div>
 		</div>
 	</div>
 </body>

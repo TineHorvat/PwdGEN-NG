@@ -33,8 +33,29 @@ $(document).ready(function () {
 		var ts = TimeStamp();
 		$(".generatedPasswords").append("<li>" + ts + "&gt;<span>" + genPass + " [" + proc + "%]</span></li>");
 	});
+
+	//dark mode option
+	var currentTheme = localStorage.getItem("theme");
+	if (currentTheme == "dark-theme") {
+		$('body').addClass('dark-theme');
+		$("#color_mode").prop("checked", "checked");
+	}
+	$("div.toggle-dark-mode-holder").fadeIn();
+	$("#color_mode").on("change", function () {
+       toggleDarkMode(this);
+    });
 });
 //functions
+function toggleDarkMode(ele) {
+    if($(ele).prop("checked") == true){
+        $('body').addClass('dark-theme');
+		localStorage.setItem("theme", "dark-theme");
+    }
+    else if($(ele).prop("checked") == false){
+        $('body').removeClass('dark-theme');
+		localStorage.removeItem("theme");
+    }
+}
 function buildArray() {
 	$.ajax({
 		url: 'words.xml',
