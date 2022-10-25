@@ -8,7 +8,9 @@ $(document).ready(function () {
 		if (status) {
 			arr = JSON.parse(localStorage.getItem('cWords'));
 		} else {
-			buildArray();
+			var arrSI = buildArray("words.xml");
+			var arrEN = buildArray("words.en.xml");
+			arr = arrSI.concat(arrEN);
 			setHtmlStorage('cWords', JSON.stringify(arr), 30);
 		}
 		var arrLen = arr.length;
@@ -56,15 +58,16 @@ function toggleDarkMode(ele) {
 		localStorage.removeItem("theme");
     }
 }
-function buildArray() {
+function buildArray(fileName) {
+	var xmlArray = [];
 	$.ajax({
-		url: 'words.xml',
+		url: fileName,
 		dataType: 'xml',
 		async: false,
 		success: function (data) {
 			var xml_node = $('words', data);
 			$(xml_node).find('word').each(function () {
-				arr.push($.trim($(this).text()));
+				xmlArray.push($.trim($(this).text()));
 			});
 		},
 		error: function (data) {
@@ -72,6 +75,7 @@ function buildArray() {
 				console.log('Error loading XML data');
 		}
 	});
+	return xmlArray;
 }
 function randomCaseStr(str) {
 	var s = "";
